@@ -38,6 +38,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="affichage.h" />
+		<Unit filename="batiment.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="batiment.h" />
 		<Unit filename="compalleg.c">
 			<Option compilerVar="CC" />
 		</Unit>

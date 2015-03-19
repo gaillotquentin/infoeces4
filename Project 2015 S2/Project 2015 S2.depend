@@ -1,0 +1,79 @@
+# depslib dependency file v1.0
+1426612800 source:c:\users\sma\desktop\project 2015 s2\compalleg.c
+	"compalleg.h"
+
+1426629277 c:\users\sma\desktop\project 2015 s2\compalleg.h
+	<allegro.h>
+
+1426693923 source:c:\users\sma\desktop\project 2015 s2\editeur.c
+	<stdio.h>
+	<stdlib.h>
+	"editeur.h"
+	"compalleg.h"
+
+1426707474 source:c:\users\sma\desktop\project 2015 s2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"compalleg.h"
+	"affichage.h"
+	"gestion.h"
+
+1426759979 source:c:\users\quentin\desktop\project 2015 s2\affichage.c
+	"affichage.h"
+	"compalleg.h"
+	<stdio.h>
+	<stdlib.h>
+
+1426759979 c:\users\quentin\desktop\project 2015 s2\affichage.h
+	"editeur.h"
+
+1426759979 source:c:\users\quentin\desktop\project 2015 s2\compalleg.c
+	"compalleg.h"
+
+1426760366 c:\users\quentin\desktop\project 2015 s2\compalleg.h
+	<allegro.h>
+
+1426759979 source:c:\users\quentin\desktop\project 2015 s2\editeur.c
+	<stdio.h>
+	<stdlib.h>
+	"editeur.h"
+	"compalleg.h"
+
+1426759979 c:\users\quentin\desktop\project 2015 s2\editeur.h
+
+1426759979 source:c:\users\quentin\desktop\project 2015 s2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"compalleg.h"
+	"affichage.h"
+	"gestion.h"
+
+1426706621 source:c:\users\sma\desktop\project 2015 s2\affichage.c
+	"affichage.h"
+	"compalleg.h"
+	<stdio.h>
+	<stdlib.h>
+
+1426706487 c:\users\sma\desktop\project 2015 s2\affichage.h
+	"editeur.h"
+
+1426693302 c:\users\sma\desktop\project 2015 s2\editeur.h
+
+1426707419 source:c:\users\sma\desktop\project 2015 s2\gestion.c
+	<stdio.h>
+	<stdlib.h>
+	"compalleg.h"
+	"editeur.h"
+	"affichage.h"
+
+1426707363 c:\users\sma\desktop\project 2015 s2\gestion.h
+
+1426759975 source:c:\users\quentin\desktop\project 2015 s2\gestion.c
+	<stdio.h>
+	<stdlib.h>
+	"compalleg.h"
+	"editeur.h"
+	"affichage.h"
+
+1426759975 c:\users\quentin\desktop\project 2015 s2\gestion.h
+

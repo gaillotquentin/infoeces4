@@ -20,7 +20,7 @@
 #define DIM_PIXEL 20
 #define NOMBRE_CASE_LARGEUR 40
 #define NOMBRE_CASE_HAUTEUR 30
-#define NOMBRE_MAX_HABITATION 20
+#define NOMBRE_MAX_HABITATION 100
 // Couleur initiale :
 // 255,255,255 pour du blanc    0,0,0 pour du noir...
 #define PAGE_COULEUR_INIT makecol(255,255,255)

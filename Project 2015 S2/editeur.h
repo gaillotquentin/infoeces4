@@ -6,9 +6,9 @@
 //Définition d'une case.
 typedef struct description_case
 {
-    char nom;
-    int eau;
-    int elec;
+    char nom; //nom
+    int eau; //eau ?
+    int elec; //elec ?
     //+++ (voisin etc..)
 
 }t_case;
@@ -58,6 +58,13 @@ void suppression_route(t_matrice_jeu *m);
 //Création d'habitation
 void creation_habitation(t_matrice_jeu *m);
 
+//Initialisation d'une habitation
+void initialiser_structure_habitation(t_matrice_jeu *m);
+
+//Suppresion d'un batiment
+void suppression_batiment(t_matrice_jeu *m);
+
+//Malloc sécurité !
 void *malloc_safe(size_t size);
 
 /*

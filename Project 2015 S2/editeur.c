@@ -145,11 +145,13 @@ void suppression_route(t_matrice_jeu *m)
     }
 }
 
+///Rajout d'une habitation
 void creation_habitation(t_matrice_jeu *m)
 {
     //Si il y a rien sur les cases : (en partant du pts en haut à gauche)
-    /// !!!route + canalisation + electricité A FAIRE!!!
-    if(m->matjeu[m->mouse_x][m->mouse_y].nom == '0' && m->matjeu[m->mouse_x+1][m->mouse_y].nom == '0' &&
+    if(m->mouse_x <= NOMBRE_CASE_LARGEUR-3 &&
+       m->mouse_y <= NOMBRE_CASE_HAUTEUR-3 &&
+       m->matjeu[m->mouse_x][m->mouse_y].nom == '0' && m->matjeu[m->mouse_x+1][m->mouse_y].nom == '0' &&
        m->matjeu[m->mouse_x+2][m->mouse_y].nom == '0' && m->matjeu[m->mouse_x][m->mouse_y+1].nom == '0' &&
        m->matjeu[m->mouse_x][m->mouse_y+2].nom == '0' && m->matjeu[m->mouse_x+1][m->mouse_y+1].nom == '0' &&
        m->matjeu[m->mouse_x+1][m->mouse_y+2].nom == '0' && m->matjeu[m->mouse_x+2][m->mouse_y+1].nom == '0' &&
@@ -167,23 +169,79 @@ void creation_habitation(t_matrice_jeu *m)
         m->matjeu[m->mouse_x+2][m->mouse_y+2].nom = 'h';
 
         //On enregistre l'habitation dans notre répertoire d'habitation (structure)
-        m->habitation[m->nb_habitation].pos_x = m->mouse_x;
-        m->habitation[m->nb_habitation].pos_y = m->mouse_y;
-        m->habitation[m->nb_habitation].niveau = 0; //pour l'instant c'est une cabanne!
-        m->habitation[m->nb_habitation].eau = 0;
-        m->habitation[m->nb_habitation].elec = 0;
-        m->habitation[m->nb_habitation].habitant = 10;
-        m->habitation[m->nb_habitation].prix = 10;
+        //On initialise
+        initialiser_structure_habitation(m);
 
         //On rajoute l'habitation
         m->nb_habitation++;
 
+        ///Le réaloc ne marche pas bien dans notre cas!
+        /*
         //Si nombre d'habitation dépasse alors, on realloc!
         if(m->nb_habitation ==  NOMBRE_MAX_HABITATION)
         {
             realloc(m->habitation,NOMBRE_MAX_HABITATION*2);
         }
-
+        */
     }
 }
 
+//Initialiser l'habitation
+void initialiser_structure_habitation(t_matrice_jeu *m)
+{
+    m->habitation[m->nb_habitation].pos_x = m->mouse_x;
+    m->habitation[m->nb_habitation].pos_y = m->mouse_y;
+    m->habitation[m->nb_habitation].niveau = 0; //pour l'instant c'est une cabanne!
+    m->habitation[m->nb_habitation].eau = 0;
+    m->habitation[m->nb_habitation].elec = 0;
+    m->habitation[m->nb_habitation].habitant = 10;
+    m->habitation[m->nb_habitation].prix = 10;
+}
+
+///Supression d'une habitation
+void suppression_batiment(t_matrice_jeu *m)
+{
+    int i,j;
+
+    //Si il une route sur la case, alors ..
+   if(m->matjeu[m->mouse_x][m->mouse_y].nom == 'h')
+    {
+        printf("nombre de bati :%d\n",m->nb_habitation);
+
+        for(i=0 ; i<m->nb_habitation ; i++)
+        {
+           if(m->mouse_x >= m->habitation[i].pos_x && m->mouse_x <= m->habitation[i].pos_x+2 &&
+              m->mouse_y >= m->habitation[i].pos_y && m->mouse_y <= m->habitation[i].pos_y+2)
+            {
+                printf("LOL\n");
+                //on la supprime
+                m->matjeu[m->habitation[i].pos_x][m->habitation[i].pos_y].nom = '0';
+                m->matjeu[m->habitation[i].pos_x+1][m->habitation[i].pos_y].nom = '0';
+                m->matjeu[m->habitation[i].pos_x][m->habitation[i].pos_y+1].nom = '0';
+                m->matjeu[m->habitation[i].pos_x+2][m->habitation[i].pos_y].nom = '0';
+                m->matjeu[m->habitation[i].pos_x][m->habitation[i].pos_y+2].nom = '0';
+                m->matjeu[m->habitation[i].pos_x+1][m->habitation[i].pos_y+1].nom = '0';
+                m->matjeu[m->habitation[i].pos_x+2][m->habitation[i].pos_y+1].nom = '0';
+                m->matjeu[m->habitation[i].pos_x+1][m->habitation[i].pos_y+2].nom = '0';
+                m->matjeu[m->habitation[i].pos_x+2][m->habitation[i].pos_y+2].nom = '0';
+
+                m->nb_habitation--;
+
+                //Replacer les habitations correctement dans le tableau d'habitation
+                if(m->nb_habitation != i) //Si l'habitation est la dernière on touche pas
+                {
+                    for(j=i ; j<m->nb_habitation ; j++)
+                    {
+                        m->habitation[j].pos_x = m->habitation[j+1].pos_x ;
+                        m->habitation[j].pos_y = m->habitation[j+1].pos_y ;
+                        m->habitation[j].niveau = m->habitation[j+1].niveau ;
+                        m->habitation[j].eau = m->habitation[j+1].eau ;
+                        m->habitation[j].elec = m->habitation[j+1].elec ;
+                        m->habitation[j].habitant = m->habitation[j+1].habitant ;
+                        m->habitation[j].prix = m->habitation[j+1].prix ;
+                    }
+                }
+            }
+        }
+    }
+}

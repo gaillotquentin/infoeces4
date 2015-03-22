@@ -64,3 +64,54 @@
 
 1426707706 c:\users\sma\desktop\project 2015 s2\gestion.h
 
+1426795021 source:d:\github\infoeces4\project 2015 s2\affichage.c
+	"affichage.h"
+	"compalleg.h"
+	<stdio.h>
+	<stdlib.h>
+
+1426724623 d:\github\infoeces4\project 2015 s2\affichage.h
+	"editeur.h"
+
+1426794942 d:\github\infoeces4\project 2015 s2\editeur.h
+	<stdlib.h>
+
+1427034751 d:\github\infoeces4\project 2015 s2\compalleg.h
+	<allegro.h>
+
+1426769230 source:d:\github\infoeces4\project 2015 s2\batiment.c
+	"batiment.h"
+	"compalleg.h"
+	<stdio.h>
+	<stdlib.h>
+	"editeur.h"
+	"affichage.h"
+	"gestion.h"
+
+1426769230 d:\github\infoeces4\project 2015 s2\batiment.h
+
+1426707706 d:\github\infoeces4\project 2015 s2\gestion.h
+
+1426612800 source:d:\github\infoeces4\project 2015 s2\compalleg.c
+	"compalleg.h"
+
+1426711687 source:d:\github\infoeces4\project 2015 s2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"compalleg.h"
+	"affichage.h"
+	"gestion.h"
+
+1426989665 source:d:\github\infoeces4\project 2015 s2\gestion.c
+	<stdio.h>
+	<stdlib.h>
+	"compalleg.h"
+	"editeur.h"
+	"affichage.h"
+
+1427034427 source:d:\github\infoeces4\project 2015 s2\editeur.c
+	<stdio.h>
+	<stdlib.h>
+	"editeur.h"
+	"compalleg.h"
+

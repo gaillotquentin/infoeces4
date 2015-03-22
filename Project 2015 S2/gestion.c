@@ -24,7 +24,7 @@ void gestion_ajout_jeu(t_matrice_jeu *m)
     position_souris_matrice_jeu(m);
 
     //Si clique Gauche avec la souris alors on rajoute, on si le clique gauche reste appuyé
-   /* if(mouse_b&1)//mouse_click&1 ou bouton == 'g'
+    if(mouse_b&1)//mouse_click&1 ou bouton == 'g'
     {
         //Position de la souris sur la matrice de jeu.
         position_souris_matrice_jeu(m);
@@ -32,10 +32,9 @@ void gestion_ajout_jeu(t_matrice_jeu *m)
         //Création d'une route
         creation_route(m);
     }
-    */
 
     //Création d'habitation, temporaire!
-    if(mouse_b&1)
+    if(bouton == 'm') //mouse_b&1
     {
         creation_habitation(m);
     }
@@ -44,5 +43,7 @@ void gestion_ajout_jeu(t_matrice_jeu *m)
     if(mouse_b&2) //bouton == 'd'
     {
         suppression_route(m);
+
+        suppression_batiment(m);
     }
 }

@@ -56,6 +56,7 @@ void affichage_route(t_matrice_jeu *m, int i, int j)
             }
 }
 
+//Affichage d'une habitation
 void affichage_habitation(t_matrice_jeu *m, int i, int j)
 {
     if(m->matjeu[i][j].nom == 'h')

@@ -72,6 +72,11 @@ t_matrice_jeu *allocation_matrice_jeu()
     m->nb_habitation = 0;
     m->nb_route = 0;
 
+    BITMAP* matrice_btm;
+    matrice_btm=create_bitmap(NOMBRE_CASE_LARGEUR*DIM_PIXEL, NOMBRE_CASE_HAUTEUR*DIM_PIXEL);
+    clear_to_color(matrice_btm, makecol(255,255,255));
+    m->matrice_btm=matrice_btm;
+
     return m;
 }
 
@@ -107,12 +112,13 @@ void position_souris_matrice_jeu(t_matrice_jeu *m)
     int i=0;
 
     //Connaitre la position dans la matrice de jeu pour x.
-    while(i*DIM_PIXEL<mouse_x-DIM_PIXEL && mouse_x>DIM_PIXEL)
+    while(i*DIM_PIXEL+(FENETRE_LARGEUR-NOMBRE_CASE_LARGEUR*DIM_PIXEL)<mouse_x-DIM_PIXEL && mouse_x>DIM_PIXEL)
     {
         i++;
     }
     m->mouse_x = i;
     i=0;
+
     //Connaitre la position dans la matrice de jeu pour y.
     while(i*DIM_PIXEL<mouse_y-DIM_PIXEL && mouse_y>DIM_PIXEL)
     {

@@ -115,3 +115,54 @@
 	"editeur.h"
 	"compalleg.h"
 
+1428190484 source:c:\users\quentin\documents\github\infoeces4\project 2015 s2\affichage.c
+	"affichage.h"
+	"compalleg.h"
+	"editeur.h"
+	<stdio.h>
+	<stdlib.h>
+
+1428187497 c:\users\quentin\documents\github\infoeces4\project 2015 s2\affichage.h
+	"editeur.h"
+
+1428186087 c:\users\quentin\documents\github\infoeces4\project 2015 s2\editeur.h
+	"compalleg.h"
+	<stdlib.h>
+
+1428181335 c:\users\quentin\documents\github\infoeces4\project 2015 s2\compalleg.h
+	<allegro.h>
+
+1426781311 source:c:\users\quentin\documents\github\infoeces4\project 2015 s2\compalleg.c
+	"compalleg.h"
+
+1428189203 source:c:\users\quentin\documents\github\infoeces4\project 2015 s2\editeur.c
+	<stdio.h>
+	<stdlib.h>
+	"editeur.h"
+	"compalleg.h"
+
+1428189977 source:c:\users\quentin\documents\github\infoeces4\project 2015 s2\gestion.c
+	"gestion.h"
+
+1428187870 source:c:\users\quentin\documents\github\infoeces4\project 2015 s2\main.c
+	<stdio.h>
+	<stdlib.h>
+	"compalleg.h"
+	"affichage.h"
+	"gestion.h"
+	"outils.h"
+
+1428185054 c:\users\quentin\documents\github\infoeces4\project 2015 s2\gestion.h
+	<stdio.h>
+	<stdlib.h>
+	"compalleg.h"
+	"editeur.h"
+	"affichage.h"
+	"outils.h"
+
+1428187222 c:\users\quentin\documents\github\infoeces4\project 2015 s2\outils.h
+	"compalleg.h"
+
+1428184191 source:c:\users\quentin\documents\github\infoeces4\project 2015 s2\outils.c
+	"outils.h"
+

@@ -1,6 +1,6 @@
 #ifndef EDITEUR_H_INCLUDED
 #define EDITEUR_H_INCLUDED
-
+#include "compalleg.h"
 #include <stdlib.h>
 
 //Définition d'une case.
@@ -29,6 +29,7 @@ typedef struct habitations
 //Matrice du jeu en 45x34 cases
 typedef struct matrice_jeu
 {
+    BITMAP* matrice_btm;
     t_case **matjeu; //Matrice de jeu
     int mouse_x; //Position en x de la souris dans la grille
     int mouse_y; //Position en y de la souris dans la grille

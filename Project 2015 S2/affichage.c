@@ -1,22 +1,23 @@
 #include "affichage.h"
 #include "compalleg.h"
+#include "editeur.h"
 #include <stdio.h>
 #include <stdlib.h>
 
 ///Affichafe de la grille sur la page
-void affichage_grille_page()
+void affichage_grille_page(t_matrice_jeu* m)
 {
     int i=0;
-
     for(i=0 ; i<=NOMBRE_CASE_LARGEUR ;i++)
     {
-        line(page,i*DIM_PIXEL,0,i*DIM_PIXEL,FENETRE_HAUTEUR,makecol(120,120,120));
+        line(m->matrice_btm,i*DIM_PIXEL,0,i*DIM_PIXEL,FENETRE_HAUTEUR,makecol(120,120,120));
     }
 
     for(i=0 ; i<=NOMBRE_CASE_HAUTEUR ;i++)
     {
-        line(page,0,i*DIM_PIXEL,FENETRE_LARGEUR,i*DIM_PIXEL,makecol(120,120,120));
+        line(m->matrice_btm,0,i*DIM_PIXEL,FENETRE_LARGEUR,i*DIM_PIXEL,makecol(120,120,120));
     }
+    blit(m->matrice_btm, page,0,0,FENETRE_LARGEUR-NOMBRE_CASE_LARGEUR*DIM_PIXEL,0,m->matrice_btm->w,m->matrice_btm->h);
 }
 
 ///Affichage de la matrice de jeu
@@ -26,9 +27,7 @@ void affichage_matrice_jeu(t_matrice_jeu *m)
 
     //effacer tout.
     effacer_page();
-
-    //Afficher la grille de jeu.
-    affichage_grille_page();
+    clear_to_color(m->matrice_btm, makecol(255,255,255));
 
     //Affichage de tout les batiments !
     for(i=0 ; i<NOMBRE_CASE_LARGEUR ; i++)
@@ -43,16 +42,20 @@ void affichage_matrice_jeu(t_matrice_jeu *m)
         }
     }
 
+    //Afficher la grille de jeu.
+    affichage_grille_page(m);
+
     //Afficher le buffer
-    afficher_page();
+//    afficher_page();
 }
 
 //Affichage des routes sur la matrice
 void affichage_route(t_matrice_jeu *m, int i, int j)
 {
+
     if(m->matjeu[i][j].nom == 'r')
             {
-                rectfill(page,i*DIM_PIXEL, j*DIM_PIXEL,(i+1)*DIM_PIXEL,(j+1)*DIM_PIXEL,makecol(0,0,0));
+                rectfill(m->matrice_btm,i*DIM_PIXEL, j*DIM_PIXEL,(i+1)*DIM_PIXEL,(j+1)*DIM_PIXEL,makecol(0,0,0));
             }
 }
 
@@ -61,6 +64,13 @@ void affichage_habitation(t_matrice_jeu *m, int i, int j)
 {
     if(m->matjeu[i][j].nom == 'h')
             {
-                rectfill(page,i*DIM_PIXEL, j*DIM_PIXEL,(i+1)*DIM_PIXEL,(j+1)*DIM_PIXEL,makecol(255,0,0));
+                rectfill(m->matrice_btm,i*DIM_PIXEL, j*DIM_PIXEL,(i+1)*DIM_PIXEL,(j+1)*DIM_PIXEL,makecol(255,0,0));
             }
 }
+
+void affichage_page()
+{
+    //On copie la page sur le screen à chaque tour de boucle.
+    afficher_page();
+}
+

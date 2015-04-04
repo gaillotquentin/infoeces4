@@ -5,13 +5,14 @@
 
 
 
-
+/*
 //Boite à outils qui sera afficher PEUT ETRE PAS UTILE!
 typedef struct boite_outils
 {
     int nb_outils;
     //..
 }t_outils;
+*/
 
 //Affichage de la grille de jeu.
 void affichage_grille_page();
@@ -24,4 +25,7 @@ void affichage_route(t_matrice_jeu *m, int i, int j);
 
 //affichage des habitations
 void affichage_habitation(t_matrice_jeu *m, int i, int j);
+
+void affichage_page();
+
 #endif // AFFICHAGE_H_INCLUDED

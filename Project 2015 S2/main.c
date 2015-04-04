@@ -3,6 +3,7 @@
 #include "compalleg.h"
 #include "affichage.h"
 #include "gestion.h"
+#include "outils.h"
 
 int main()
 {
@@ -14,6 +15,10 @@ int main()
     t_matrice_jeu *m;
     m=allocation_matrice_jeu();
 
+    //boite a outils
+    t_outils* outils;
+    outils=allocation_outils();
+
     /// Boucle pour attente appui sur echap
     while (!key[KEY_ESC])
     {
@@ -22,6 +27,11 @@ int main()
 
         //Affichage de la matrice jeu
         gestion_affichage_jeu(m);
+
+        //gestion de la boite a outils
+        gestion_outils(outils);
+
+        affichage_page();
 
         //attendre 10ms
         rest(10);

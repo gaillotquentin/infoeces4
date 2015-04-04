@@ -17,9 +17,9 @@
 ///POUR CODER AVEC LE BON NOMBRE DE CASE ==> OBLIGATION DE PAS AVOIR DE MAGIQUE NUMBER
 #define FENETRE_LARGEUR 800 //45 colonnes en 20x20 pixels
 #define FENETRE_HAUTEUR 600 //35 colonnes en 20x20 pixels
-#define DIM_PIXEL 20
-#define NOMBRE_CASE_LARGEUR 40
-#define NOMBRE_CASE_HAUTEUR 30
+#define DIM_PIXEL 15
+#define NOMBRE_CASE_LARGEUR 45
+#define NOMBRE_CASE_HAUTEUR 35
 #define NOMBRE_MAX_HABITATION 100
 // Couleur initiale :
 // 255,255,255 pour du blanc    0,0,0 pour du noir...

@@ -1,7 +1,7 @@
 #ifndef AFFICHAGE_H_INCLUDED
 #define AFFICHAGE_H_INCLUDED
 
-#include "editeur.h"
+#include "bibliotheque.h"
 
 
 

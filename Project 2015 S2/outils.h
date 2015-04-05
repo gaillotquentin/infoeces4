@@ -1,7 +1,7 @@
 #ifndef OUTILS_H_INCLUDED
 #define OUTILS_H_INCLUDED
 
-#include "compalleg.h"
+#include "bibliotheque.h"
 
 typedef struct outils
 {

@@ -1,8 +1,5 @@
-#include "affichage.h"
-#include "compalleg.h"
-#include "editeur.h"
-#include <stdio.h>
-#include <stdlib.h>
+#include "bibliotheque.h"
+
 
 ///Affichafe de la grille sur la page
 void affichage_grille_page(t_matrice_jeu* m)

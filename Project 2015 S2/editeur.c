@@ -1,7 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "editeur.h"
-#include "compalleg.h"
+#include "bibliotheque.h"
+
 
 
 ///REGLES DU JEU
@@ -119,12 +117,20 @@ void position_souris_matrice_jeu(t_matrice_jeu *m)
     m->mouse_x = i;
     i=0;
 
+
     //Connaitre la position dans la matrice de jeu pour y.
     while(i*DIM_PIXEL<mouse_y-DIM_PIXEL && mouse_y>DIM_PIXEL)
     {
         i++;
     }
     m->mouse_y = i;
+
+    if(mouse_x<FENETRE_LARGEUR-NOMBRE_CASE_LARGEUR*DIM_PIXEL || mouse_y>m->matrice_btm->h)
+    {
+        m->mouse_x=-1;
+        m->mouse_y=-1;
+    }
+
 }
 
 ///Rajouter une ROUTE
@@ -161,7 +167,13 @@ void creation_habitation(t_matrice_jeu *m)
        m->matjeu[m->mouse_x+2][m->mouse_y].nom == '0' && m->matjeu[m->mouse_x][m->mouse_y+1].nom == '0' &&
        m->matjeu[m->mouse_x][m->mouse_y+2].nom == '0' && m->matjeu[m->mouse_x+1][m->mouse_y+1].nom == '0' &&
        m->matjeu[m->mouse_x+1][m->mouse_y+2].nom == '0' && m->matjeu[m->mouse_x+2][m->mouse_y+1].nom == '0' &&
-       m->matjeu[m->mouse_x+2][m->mouse_y+2].nom == '0')
+       m->matjeu[m->mouse_x+2][m->mouse_y+2].nom == '0'
+       && (m->matjeu[m->mouse_x-1][m->mouse_y].nom == 'r' || m->matjeu[m->mouse_x-1][m->mouse_y+1].nom == 'r' ||
+           m->matjeu[m->mouse_x-1][m->mouse_y+2].nom == 'r' || m->matjeu[m->mouse_x][m->mouse_y-1].nom == 'r' ||
+           m->matjeu[m->mouse_x][m->mouse_y+3].nom == 'r' || m->matjeu[m->mouse_x+1][m->mouse_y-1].nom == 'r' ||
+           m->matjeu[m->mouse_x+1][m->mouse_y+3].nom == 'r' || m->matjeu[m->mouse_x+2][m->mouse_y-1].nom == 'r' ||
+           m->matjeu[m->mouse_x+2][m->mouse_y+3].nom == 'r' || m->matjeu[m->mouse_x+3][m->mouse_y].nom == 'r' ||
+           m->matjeu[m->mouse_x+3][m->mouse_y+1].nom == 'r' || m->matjeu[m->mouse_x+3][m->mouse_y+2].nom == 'r'))
     {
         //On assigne les habitations au grillage (matrice de jeu)
         m->matjeu[m->mouse_x][m->mouse_y].nom = 'h';

@@ -1,4 +1,4 @@
-#include "gestion.h"
+#include "bibliotheque.h"
 
 ///Gestion de l'affichage complet de la matrice de jeu
 void gestion_affichage_jeu(t_matrice_jeu *m)
@@ -18,7 +18,7 @@ void gestion_ajout_jeu(t_matrice_jeu *m)
     position_souris_matrice_jeu(m);
 
     //Si clique Gauche avec la souris alors on rajoute, on si le clique gauche reste appuyé
-    if(mouse_b&1)//mouse_click&1 ou bouton == 'g'
+    if(mouse_b&1 && m->mouse_x!=-1 && m->mouse_y!=-1)//mouse_click&1 ou bouton == 'g'
     {
         //Création d'une route
         creation_route(m);
@@ -31,7 +31,7 @@ void gestion_ajout_jeu(t_matrice_jeu *m)
     }
 
     //Si clique Droit on supprime le battiment en question.
-    if(mouse_b&2) //bouton == 'd'
+    if(mouse_b&2 && m->mouse_x!=-1 && m->mouse_y!=-1) //bouton == 'd'
     {
         suppression_route(m);
 
@@ -42,5 +42,10 @@ void gestion_ajout_jeu(t_matrice_jeu *m)
 void gestion_outils(t_outils* outils)
 {
     affichage_outils(outils);
+}
+
+void gestion_donnees(t_donnees* donnees)
+{
+    affichage_donnees(donnees);
 }
 

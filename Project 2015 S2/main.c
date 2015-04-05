@@ -1,15 +1,12 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include "compalleg.h"
-#include "affichage.h"
-#include "gestion.h"
-#include "outils.h"
+#include "bibliotheque.h"
 
 int main()
 {
     ///Initialisation
     //Initialiser Allegro
     initialiser_allegro();
+    // Pour disposer des caractères ascii étendus (avec accents)
+    set_uformat(U_ASCII);
 
     //Structure de jeu.
     t_matrice_jeu *m;
@@ -18,6 +15,10 @@ int main()
     //boite a outils
     t_outils* outils;
     outils=allocation_outils();
+
+    //données
+    t_donnees* donnees;
+    donnees=allocation_donnees();
 
     /// Boucle pour attente appui sur echap
     while (!key[KEY_ESC])
@@ -30,6 +31,8 @@ int main()
 
         //gestion de la boite a outils
         gestion_outils(outils);
+
+        gestion_donnees(donnees);
 
         affichage_page();
 

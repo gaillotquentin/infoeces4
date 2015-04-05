@@ -1,12 +1,8 @@
 #ifndef GESTION_H_INCLUDED
 #define GESTION_H_INCLUDED
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "compalleg.h"
-#include "editeur.h"
-#include "affichage.h"
-#include "outils.h"
+#include "bibliotheque.h"
+
 
 //Gestion de l'affichage de la matrice de jeu
 void gestion_affichage_jeu(t_matrice_jeu *m);

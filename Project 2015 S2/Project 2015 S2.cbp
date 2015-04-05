@@ -38,10 +38,15 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="affichage.h" />
+		<Unit filename="bibliotheque.h" />
 		<Unit filename="compalleg.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="compalleg.h" />
+		<Unit filename="donnees.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="donnees.h" />
 		<Unit filename="editeur.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -53,6 +58,10 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="outils.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="outils.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -1,7 +1,7 @@
 #ifndef EDITEUR_H_INCLUDED
 #define EDITEUR_H_INCLUDED
-#include "compalleg.h"
-#include <stdlib.h>
+#include "bibliotheque.h"
+
 
 //Définition d'une case.
 typedef struct description_case

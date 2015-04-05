@@ -1,7 +1,7 @@
 #ifndef GRAPHIQUES_H_INCLUDED
 #define GRAPHIQUES_H_INCLUDED
 
-#include <allegro.h>
+#include "bibliotheque.h"
 
 /// Constantes
 

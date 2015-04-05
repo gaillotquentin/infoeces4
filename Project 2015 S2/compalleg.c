@@ -1,4 +1,4 @@
-#include "compalleg.h"
+#include "bibliotheque.h"
 
 BITMAP *page=NULL;
 int page_couleur_fond;

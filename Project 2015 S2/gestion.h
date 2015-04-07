@@ -10,6 +10,6 @@ void gestion_affichage_jeu(t_matrice_jeu *m);
 //Gestion de l'ajout d'une route, maison, centrale ..
 void gestion_ajout_jeu(t_matrice_jeu *m);
 
-void gestion_outils(t_outils* outils);
+void gestion_outils(t_outils* outils, t_matrice_jeu *m);
 
 #endif // GESTION_H_INCLUDED

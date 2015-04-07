@@ -39,6 +39,8 @@ typedef struct matrice_jeu
 
     int nb_route; //nombre de route
 
+    int outils;
+
 }t_matrice_jeu;
 
 //Allocation de la matrice de jeu

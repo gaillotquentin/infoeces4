@@ -18,14 +18,14 @@ void gestion_ajout_jeu(t_matrice_jeu *m)
     position_souris_matrice_jeu(m);
 
     //Si clique Gauche avec la souris alors on rajoute, on si le clique gauche reste appuyé
-    if(mouse_b&1 && m->mouse_x!=-1 && m->mouse_y!=-1)//mouse_click&1 ou bouton == 'g'
+    if(mouse_b&1 && m->outils==OUTILS_ROUTE && m->mouse_x!=-1 && m->mouse_y!=-1)//mouse_click&1 ou bouton == 'g'
     {
         //Création d'une route
         creation_route(m);
     }
 
     //Création d'habitation, temporaire!
-    if(bouton == 'm') //mouse_b&1
+    if(mouse_b&1 && m->outils==OUTILS_HABITATION&& m->mouse_x!=-1 && m->mouse_y!=-1) //mouse_b&1
     {
         creation_habitation(m);
     }
@@ -39,9 +39,10 @@ void gestion_ajout_jeu(t_matrice_jeu *m)
     }
 }
 
-void gestion_outils(t_outils* outils)
+void gestion_outils(t_outils* outils, t_matrice_jeu *m)
 {
     outils->outils_courant=selection_outils(outils);
+    m->outils=outils->outils_courant;
     printf("\n%d",outils->outils_courant);
     affichage_outils(outils);
 }

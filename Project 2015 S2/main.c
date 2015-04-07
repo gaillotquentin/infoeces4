@@ -30,7 +30,7 @@ int main()
         gestion_affichage_jeu(m);
 
         //gestion de la boite a outils
-        gestion_outils(outils);
+        gestion_outils(outils, m);
 
         gestion_donnees(donnees);
 

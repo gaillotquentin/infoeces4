@@ -19,6 +19,27 @@ t_outils* allocation_outils()
 void affichage_outils(t_outils* outils)
 {
     blit(outils->outils_bmp,page,0,0,0,0,outils->outils_bmp->w,outils->outils_bmp->h);
+    if(outils->outils_courant==OUTILS_HABITATION)
+        rect(outils->outils_bmp,12,25,95,100,makecol(76,76,76));
+    else
+        rect(outils->outils_bmp,12,25,95,100,makecol(220,220,220));
+
+    if(outils->outils_courant==OUTILS_ELEC)
+        rect(outils->outils_bmp,12,107,95,185,makecol(76,76,76));
+    else
+        rect(outils->outils_bmp,12,107,95,185,makecol(220,220,220));
+
+    if(outils->outils_courant==OUTILS_EAU)
+        rect(outils->outils_bmp,12,194,95,261,makecol(76,76,76));
+    else
+        rect(outils->outils_bmp,12,194,95,261,makecol(220,220,220));
+
+    if(outils->outils_courant==OUTILS_ROUTE)
+        rect(outils->outils_bmp,12,263,95,340,makecol(76,76,76));
+    else
+        rect(outils->outils_bmp,12,263,95,340,makecol(220,220,220));
+
+
 }
 
 int selection_outils(t_outils* outils)

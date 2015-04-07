@@ -263,13 +263,19 @@ int test_route(t_matrice_jeu *m, int taille_x, int taille_y)
 
     for(i=0; i<taille_x; i++)
     {
-        if(m->matjeu[m->mouse_x+i][m->mouse_y-1].nom == 'r' || m->matjeu[m->mouse_x+i][m->mouse_y+taille_y].nom == 'r')
-            test++;
+        if(m->mouse_y-1>=0)
+        {
+            if(m->matjeu[m->mouse_x+i][m->mouse_y-1].nom == 'r' || m->matjeu[m->mouse_x+i][m->mouse_y+taille_y].nom == 'r')
+                test++;
+        }
     }
     for(i=0; i<taille_y; i++)
     {
-        if(m->matjeu[m->mouse_x-1][m->mouse_y+i].nom == 'r' || m->matjeu[m->mouse_x+taille_x][m->mouse_y+i].nom == 'r')
-            test++;
+        if(m->mouse_x-1>=0)
+        {
+            if(m->matjeu[m->mouse_x-1][m->mouse_y+i].nom == 'r' || m->matjeu[m->mouse_x+taille_x][m->mouse_y+i].nom == 'r'  )
+                test++;
+        }
     }
 
     if(test!=0)

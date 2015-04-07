@@ -161,30 +161,10 @@ void suppression_route(t_matrice_jeu *m)
 void creation_habitation(t_matrice_jeu *m)
 {
     //Si il y a rien sur les cases : (en partant du pts en haut à gauche)
-    if(m->mouse_x <= NOMBRE_CASE_LARGEUR-3 &&
-       m->mouse_y <= NOMBRE_CASE_HAUTEUR-3 &&
-       m->matjeu[m->mouse_x][m->mouse_y].nom == '0' && m->matjeu[m->mouse_x+1][m->mouse_y].nom == '0' &&
-       m->matjeu[m->mouse_x+2][m->mouse_y].nom == '0' && m->matjeu[m->mouse_x][m->mouse_y+1].nom == '0' &&
-       m->matjeu[m->mouse_x][m->mouse_y+2].nom == '0' && m->matjeu[m->mouse_x+1][m->mouse_y+1].nom == '0' &&
-       m->matjeu[m->mouse_x+1][m->mouse_y+2].nom == '0' && m->matjeu[m->mouse_x+2][m->mouse_y+1].nom == '0' &&
-       m->matjeu[m->mouse_x+2][m->mouse_y+2].nom == '0'
-       && (m->matjeu[m->mouse_x-1][m->mouse_y].nom == 'r' || m->matjeu[m->mouse_x-1][m->mouse_y+1].nom == 'r' ||
-           m->matjeu[m->mouse_x-1][m->mouse_y+2].nom == 'r' || m->matjeu[m->mouse_x][m->mouse_y-1].nom == 'r' ||
-           m->matjeu[m->mouse_x][m->mouse_y+3].nom == 'r' || m->matjeu[m->mouse_x+1][m->mouse_y-1].nom == 'r' ||
-           m->matjeu[m->mouse_x+1][m->mouse_y+3].nom == 'r' || m->matjeu[m->mouse_x+2][m->mouse_y-1].nom == 'r' ||
-           m->matjeu[m->mouse_x+2][m->mouse_y+3].nom == 'r' || m->matjeu[m->mouse_x+3][m->mouse_y].nom == 'r' ||
-           m->matjeu[m->mouse_x+3][m->mouse_y+1].nom == 'r' || m->matjeu[m->mouse_x+3][m->mouse_y+2].nom == 'r'))
+    if( test_construction(m, 3, 3) && test_route(m, 3, 3) )
     {
         //On assigne les habitations au grillage (matrice de jeu)
-        m->matjeu[m->mouse_x][m->mouse_y].nom = 'h';
-        m->matjeu[m->mouse_x+1][m->mouse_y].nom = 'h';
-        m->matjeu[m->mouse_x+2][m->mouse_y].nom = 'h';
-        m->matjeu[m->mouse_x][m->mouse_y+1].nom = 'h';
-        m->matjeu[m->mouse_x][m->mouse_y+2].nom = 'h';
-        m->matjeu[m->mouse_x+1][m->mouse_y+1].nom = 'h';
-        m->matjeu[m->mouse_x+1][m->mouse_y+2].nom = 'h';
-        m->matjeu[m->mouse_x+2][m->mouse_y+1].nom = 'h';
-        m->matjeu[m->mouse_x+2][m->mouse_y+2].nom = 'h';
+        ecriture_dans_nom_matrice(m, m->mouse_x, m->mouse_y, 3, 3, 'h');
 
         //On enregistre l'habitation dans notre répertoire d'habitation (structure)
         //On initialise
@@ -233,15 +213,7 @@ void suppression_batiment(t_matrice_jeu *m)
             {
                 printf("LOL\n");
                 //on la supprime
-                m->matjeu[m->habitation[i].pos_x][m->habitation[i].pos_y].nom = '0';
-                m->matjeu[m->habitation[i].pos_x+1][m->habitation[i].pos_y].nom = '0';
-                m->matjeu[m->habitation[i].pos_x][m->habitation[i].pos_y+1].nom = '0';
-                m->matjeu[m->habitation[i].pos_x+2][m->habitation[i].pos_y].nom = '0';
-                m->matjeu[m->habitation[i].pos_x][m->habitation[i].pos_y+2].nom = '0';
-                m->matjeu[m->habitation[i].pos_x+1][m->habitation[i].pos_y+1].nom = '0';
-                m->matjeu[m->habitation[i].pos_x+2][m->habitation[i].pos_y+1].nom = '0';
-                m->matjeu[m->habitation[i].pos_x+1][m->habitation[i].pos_y+2].nom = '0';
-                m->matjeu[m->habitation[i].pos_x+2][m->habitation[i].pos_y+2].nom = '0';
+                ecriture_dans_nom_matrice(m, m->habitation[i].pos_x, m->habitation[i].pos_y, 3, 3, '0');
 
                 m->nb_habitation--;
 
@@ -260,6 +232,61 @@ void suppression_batiment(t_matrice_jeu *m)
                     }
                 }
             }
+        }
+    }
+}
+
+int test_construction(t_matrice_jeu *m, int taille_x, int taille_y)
+{
+    int i,j;
+    int test=0;
+
+    for(i=0; i<taille_x; i++)
+    {
+        for(j=0; j<taille_y; j++)
+        {
+            if(m->matjeu[m->mouse_x+i][m->mouse_y+j].nom == '0')
+                test++;
+        }
+    }
+
+    if(test==(taille_x*taille_y) && m->mouse_x <= NOMBRE_CASE_LARGEUR-taille_x && m->mouse_y <= NOMBRE_CASE_HAUTEUR-taille_y)
+        return 1;
+    else
+        return 0;
+}
+
+int test_route(t_matrice_jeu *m, int taille_x, int taille_y)
+{
+    int i;
+    int test=0;
+
+    for(i=0; i<taille_x; i++)
+    {
+        if(m->matjeu[m->mouse_x+i][m->mouse_y-1].nom == 'r' || m->matjeu[m->mouse_x+i][m->mouse_y+taille_y].nom == 'r')
+            test++;
+    }
+    for(i=0; i<taille_y; i++)
+    {
+        if(m->matjeu[m->mouse_x-1][m->mouse_y+i].nom == 'r' || m->matjeu[m->mouse_x+taille_x][m->mouse_y+i].nom == 'r')
+            test++;
+    }
+
+    if(test!=0)
+        return 1;
+    else
+        return 0;
+}
+
+void ecriture_dans_nom_matrice(t_matrice_jeu *m, int mouse_x, int mouse_y, int taille_x, int taille_y, char c)
+{
+    int i,j;
+
+    for(i=0; i<taille_x; i++)
+    {
+        for(j=0; j<taille_y; j++)
+        {
+            m->matjeu[mouse_x+i][mouse_y+j].nom = c;
         }
     }
 }

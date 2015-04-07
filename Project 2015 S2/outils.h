@@ -1,17 +1,23 @@
 #ifndef OUTILS_H_INCLUDED
 #define OUTILS_H_INCLUDED
 
+#define OUTILS_HABITATION 1
+#define OUTILS_ELEC 2
+#define OUTILS_EAU 3
+#define OUTILS_ROUTE 4
+
 #include "bibliotheque.h"
 
 typedef struct outils
 {
-    BITMAP* outils_btm;
-    int nombre_outils;
-
+    BITMAP* outils_bmp;
+    int outils_courant;
 }t_outils;
 
 t_outils* allocation_outils();
 
 void affichage_outils(t_outils* outils);
+
+int selection_outils(t_outils* outils);
 
 #endif // OUTILS_H_INCLUDED

@@ -5,7 +5,7 @@
 
 typedef struct donnees
 {
-    BITMAP* donnees_btm;
+    BITMAP* donnees_bmp;
 }t_donnees;
 
 t_donnees* allocation_donnees();

@@ -68,6 +68,12 @@ void suppression_batiment(t_matrice_jeu *m);
 //Malloc sécurité !
 void *malloc_safe(size_t size);
 
+int test_construction(t_matrice_jeu *m, int taille_x, int taille_y);
+
+int test_route(t_matrice_jeu *m, int taille_x, int taille_y);
+
+void ecriture_dans_nom_matrice(t_matrice_jeu *m, int mouse_x, int mouse_y, int taille_x, int taille_y, char c);
+
 /*
 int terrain_vague;
     int cabane;

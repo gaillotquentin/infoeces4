@@ -265,15 +265,26 @@ int test_route(t_matrice_jeu *m, int taille_x, int taille_y)
     {
         if(m->mouse_y-1>=0)
         {
-            if(m->matjeu[m->mouse_x+i][m->mouse_y-1].nom == 'r' || m->matjeu[m->mouse_x+i][m->mouse_y+taille_y].nom == 'r')
+            if(m->matjeu[m->mouse_x+i][m->mouse_y-1].nom == 'r')
                 test++;
         }
+        if(m->mouse_y+taille_y<NOMBRE_CASE_HAUTEUR)
+        {
+            if(m->matjeu[m->mouse_x+i][m->mouse_y+taille_y].nom == 'r')
+                test++;
+        }
+
     }
     for(i=0; i<taille_y; i++)
     {
         if(m->mouse_x-1>=0)
         {
-            if(m->matjeu[m->mouse_x-1][m->mouse_y+i].nom == 'r' || m->matjeu[m->mouse_x+taille_x][m->mouse_y+i].nom == 'r'  )
+            if(m->matjeu[m->mouse_x-1][m->mouse_y+i].nom == 'r')
+                test++;
+        }
+        if(m->mouse_x+taille_x<NOMBRE_CASE_LARGEUR)
+        {
+            if(m->matjeu[m->mouse_x+taille_x][m->mouse_y+i].nom == 'r')
                 test++;
         }
     }

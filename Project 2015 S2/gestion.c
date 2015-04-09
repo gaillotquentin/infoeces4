@@ -42,8 +42,10 @@ void gestion_ajout_jeu(t_matrice_jeu *m)
 void gestion_outils(t_outils* outils, t_matrice_jeu *m)
 {
     outils->outils_courant=selection_outils(outils);
+    outils->affichage=selection_affichage(outils);
     m->outils=outils->outils_courant;
-    printf("\n%d",outils->outils_courant);
+    m->affichage=outils->affichage;
+    printf("\n%d  %d",outils->outils_courant, outils->affichage);
     affichage_outils(outils);
 }
 

@@ -41,6 +41,8 @@ typedef struct matrice_jeu
 
     int outils;
 
+    int affichage;
+
 }t_matrice_jeu;
 
 //Allocation de la matrice de jeu

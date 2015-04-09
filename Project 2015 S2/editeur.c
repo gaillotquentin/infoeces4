@@ -74,6 +74,8 @@ t_matrice_jeu *allocation_matrice_jeu()
     matrice_btm=create_bitmap(NOMBRE_CASE_LARGEUR*DIM_PIXEL, NOMBRE_CASE_HAUTEUR*DIM_PIXEL);
     clear_to_color(matrice_btm, makecol(255,255,255));
     m->matrice_btm=matrice_btm;
+    m->outils=0;
+    m->affichage=AFFICHAGE_0;
 
     return m;
 }

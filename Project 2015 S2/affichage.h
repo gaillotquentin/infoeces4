@@ -4,7 +4,6 @@
 #include "bibliotheque.h"
 
 
-
 /*
 //Boite à outils qui sera afficher PEUT ETRE PAS UTILE!
 typedef struct boite_outils

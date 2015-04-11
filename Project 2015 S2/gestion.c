@@ -1,5 +1,6 @@
 #include "bibliotheque.h"
 
+
 ///Gestion de l'affichage complet de la matrice de jeu
 void gestion_affichage_jeu(t_matrice_jeu *m)
 {

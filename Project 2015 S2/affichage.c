@@ -1,6 +1,7 @@
 #include "bibliotheque.h"
 
 
+
 ///Affichafe de la grille sur la page
 void affichage_grille_page(t_matrice_jeu* m)
 {

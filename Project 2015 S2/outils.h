@@ -11,6 +11,7 @@
 #define AFFICHAGE_1 1
 #define AFFICHAGE_2 2
 
+
 #include "bibliotheque.h"
 
 typedef struct outils

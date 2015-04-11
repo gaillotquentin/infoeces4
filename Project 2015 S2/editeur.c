@@ -1,7 +1,6 @@
 #include "bibliotheque.h"
 
 
-
 ///REGLES DU JEU
 
 // Elément de route, canalisation, ligne électrique : 1x1 case

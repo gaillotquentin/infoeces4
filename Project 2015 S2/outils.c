@@ -1,5 +1,6 @@
 #include "bibliotheque.h"
 
+
 t_outils* allocation_outils()
 {
     BITMAP* outils_bmp;

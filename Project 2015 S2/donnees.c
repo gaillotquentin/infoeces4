@@ -1,5 +1,6 @@
 #include "bibliotheque.h"
 
+
 t_donnees* allocation_donnees()
 {
     BITMAP* donnees_bmp;
